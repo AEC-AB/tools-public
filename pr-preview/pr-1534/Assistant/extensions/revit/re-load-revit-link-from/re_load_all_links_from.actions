@@ -1,0 +1,183 @@
+{
+  "Version": 4,
+  "ActionConfigs": [
+    {
+      "Id": "804c2e92-2921-41be-bd5d-712dce52027d",
+      "IsChecked": false,
+      "Name": "Update list of revit models to check",
+      "Tasks": [
+        {
+          "TaskTypeId": "468ee36e-3987-4e9b-870d-cd8395de75c5",
+          "Path": "\\Re Load Linker Modell.actions",
+          "RunDisabledTasks": false,
+          "RunOnlySpecifiedActions": true,
+          "ActionsToRun": [
+            "a2c4e6d6-d589-4ee7-84a4-14ea16efdc83"
+          ],
+          "ShareConnection": false,
+          "Id": "23bcd0a9-3f6d-4d4c-8bc9-a61973af0641",
+          "Disabled": false,
+          "GeneratedName": "Run Assistant file",
+          "UserDefinedName": "Update list of revit models to check",
+          "Condition": 0,
+          "TreatErrorsAsWarnings": true,
+          "Timeout": null,
+          "Logins": []
+        }
+      ],
+      "GroupId": "2b361677-5850-4dbb-b6bd-eb7fa71e84bf",
+      "Variables": [],
+      "Retires": 0
+    },
+    {
+      "Id": "c5f0036d-7845-466d-b038-65193e09f97d",
+      "IsChecked": false,
+      "Name": "Re Load Links all models",
+      "Tasks": [
+        {
+          "TaskTypeId": "ea019a89-5170-4d1e-b6d6-e6e152ab6ed7",
+          "SubTasks": [
+            {
+              "TaskTypeId": "02b00c3f-aeb5-4de3-b933-9dbcae679272",
+              "Version": "R2024",
+              "Id": "e0d4e564-1f76-40cc-90a7-900ed063920d",
+              "Disabled": false,
+              "GeneratedName": "Start Revit R2024",
+              "UserDefinedName": null,
+              "Condition": 0,
+              "TreatErrorsAsWarnings": false,
+              "Timeout": null,
+              "Logins": []
+            },
+            {
+              "DocumentPath": "",
+              "Worksets": [],
+              "GetWorksetsFromVariable": false,
+              "WorksetsVariable": "",
+              "TaskTypeId": "13d5957a-5400-453a-aeff-b1f65ab5a221",
+              "DetachFromCentral": "False",
+              "DiscardWorksets": "False",
+              "Audit": "True",
+              "EnsureLinksLoaded": "False",
+              "MinDiskSpace": 5,
+              "OpenFromC4R": true,
+              "ProjectGuid": "${{ Loop.ProjectId }}",
+              "ModelGuid": "${{ Loop.ItemId }}",
+              "WorksetConfigurationOption": "OpenAllWorksets",
+              "Id": "495dd68b-6f3e-4efe-b629-b9512b48460b",
+              "Disabled": false,
+              "GeneratedName": "Open BIM 360 model",
+              "UserDefinedName": null,
+              "Condition": 0,
+              "TreatErrorsAsWarnings": false,
+              "Timeout": null,
+              "Logins": []
+            },
+            {
+              "TaskTypeId": "468ee36e-3987-4e9b-870d-cd8395de75c5",
+              "Path": "\\Re Load Linker Modell.actions",
+              "RunDisabledTasks": false,
+              "RunOnlySpecifiedActions": true,
+              "ActionsToRun": [
+                "7931e6e4-4d3c-49ff-8c46-c58fd7acf4ba",
+                "bc9e6ca0-1795-4429-8f1d-926cf2d2d967"
+              ],
+              "ShareConnection": false,
+              "Id": "2cf5e10a-f094-43c2-aadd-28d0fa28c563",
+              "Disabled": false,
+              "GeneratedName": "Run Assistant file",
+              "UserDefinedName": "Reload links ACC",
+              "Condition": 0,
+              "TreatErrorsAsWarnings": true,
+              "Timeout": null,
+              "Logins": []
+            },
+            {
+              "SavePath": null,
+              "TaskTypeId": "df22ee54-8458-4350-a326-a7e826f9e1d0",
+              "MaximumBackups": 3,
+              "SaveAs": false,
+              "Compact": true,
+              "OpenWorksetsDefault": 0,
+              "SaveLocalAfter": false,
+              "ReloadLatest": true,
+              "SaveLocalBefore": false,
+              "Comment": "Reloaded links with COWI Assistant",
+              "Id": "2ae479e4-dd2f-4e4b-acb3-5ae299024307",
+              "Disabled": false,
+              "GeneratedName": "Save model",
+              "UserDefinedName": null,
+              "Condition": 0,
+              "TreatErrorsAsWarnings": false,
+              "Timeout": null,
+              "Logins": []
+            },
+            {
+              "TaskTypeId": "f208c569-449b-4141-bc58-e5c0e870b154",
+              "Id": "b3e0546d-fef3-4d03-bca5-338359f8d361",
+              "Disabled": false,
+              "GeneratedName": "Kill active Revit instance",
+              "UserDefinedName": null,
+              "Condition": 0,
+              "TreatErrorsAsWarnings": false,
+              "Timeout": null,
+              "Logins": []
+            }
+          ],
+          "LoopingSource": {
+            "TypeId": "4e4c9f51-03fe-4c26-9d1d-cae171e4db9c",
+            "HubId": "",
+            "ProjectId": "",
+            "FolderId": "",
+            "Path": "Project Files",
+            "Pattern": "*[Folder]*[File Contain]*.rvt",
+            "SearchSubfolders": true,
+            "OnlyIncludeC4RModels": true,
+            "UseRegex": false,
+            "IncludePathInFilter": true
+          },
+          "LoopingConfig": {
+            "Key": "Loop"
+          },
+          "CheckedItems": [],
+          "ExecuteInParallel": true,
+          "Id": "56108cdf-1d38-42be-90dd-180b908fd54f",
+          "Disabled": false,
+          "GeneratedName": "Loop",
+          "UserDefinedName": null,
+          "Condition": 0,
+          "TreatErrorsAsWarnings": false,
+          "Timeout": null,
+          "Logins": []
+        }
+      ],
+      "GroupId": "2b361677-5850-4dbb-b6bd-eb7fa71e84bf",
+      "Variables": [],
+      "Retires": 0
+    }
+  ],
+  "SchedulingConfig": {
+    "Schedules": []
+  },
+  "ActionGroups": [
+    {
+      "Id": "2b361677-5850-4dbb-b6bd-eb7fa71e84bf",
+      "Name": "Action group",
+      "Variables": []
+    }
+  ],
+  "Variables": [
+    {
+      "Key": "Assistant:RevitPopupCloserSettings",
+      "Value": "{\"KeepWindowTitleCompares\":[{\"CompareType\":0,\"IgnoreCase\":true,\"CompareValue\":\"IFC Export\"},{\"CompareType\":2,\"IgnoreCase\":false,\"CompareValue\":\"Running \"}],\"CloseWindowTitleCompares\":[{\"CompareType\":0,\"IgnoreCase\":true,\"CompareValue\":\"License Borrowed\"},{\"CompareType\":0,\"IgnoreCase\":true,\"CompareValue\":\"External Tools - External Tool Failure\"},{\"CompareType\":0,\"IgnoreCase\":true,\"CompareValue\":\"Macro Security Alert\"},{\"CompareType\":0,\"IgnoreCase\":true,\"CompareValue\":\"Display Error\"},{\"CompareType\":3,\"IgnoreCase\":true,\"CompareValue\":\"Assistant - Setup\"}],\"ButtonsToClick\":[{\"CompareType\":0,\"IgnoreCase\":true,\"CompareValue\":\"OK\"},{\"CompareType\":0,\"IgnoreCase\":false,\"CompareValue\":\"Ignore and continue opening the project\"},{\"CompareType\":0,\"IgnoreCase\":false,\"CompareValue\":\"Continue loading the file\"},{\"CompareType\":0,\"IgnoreCase\":false,\"CompareValue\":\"Discard my changes and open the latest version of the model.\"},{\"CompareType\":0,\"IgnoreCase\":true,\"CompareValue\":\"Check Out Worksets\"},{\"CompareType\":0,\"IgnoreCase\":true,\"CompareValue\":\"Delete Dimension(s)\"},{\"CompareType\":0,\"IgnoreCase\":true,\"CompareValue\":\"CANCEL\"},{\"CompareType\":0,\"IgnoreCase\":true,\"CompareValue\":\"LOAD\"},{\"CompareType\":0,\"IgnoreCase\":true,\"CompareValue\":\"ALWAYS LOAD\"},{\"CompareType\":0,\"IgnoreCase\":true,\"CompareValue\":\"CLOSE\"},{\"CompareType\":0,\"IgnoreCase\":true,\"CompareValue\":\"CONTINUE WITHOUT SAVE\"},{\"CompareType\":0,\"IgnoreCase\":true,\"CompareValue\":\"NO\"},{\"CompareType\":0,\"IgnoreCase\":false,\"CompareValue\":\"Close\"}]}"
+    }
+  ],
+  "Settings": {
+    "LogActionRuns": true,
+    "ActionRunLogDirectory": "\\\\fileserver\\projects\\Example Project\\Assistant\\Re Load Linker ACC\\Results"
+  },
+  "RequiredLogins": [
+    "Forge Three Legged",
+    "Assistant Web API"
+  ]
+}
