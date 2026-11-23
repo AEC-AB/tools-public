@@ -174,7 +174,7 @@
   ],
   "Settings": {
     "LogActionRuns": true,
-    "ActionRunLogDirectory": "\\\\cowi.net\\projects\\A055000\\A058179\\3.7 Tegninger\\01 Administrasjon\\11 Assistant\\Re Load Linker ACC\\Results"
+    "ActionRunLogDirectory": "\\\\fileserver\\projects\\Example Project\\Assistant\\Re Load Linker ACC\\Results"
   },
   "RequiredLogins": [
     "Forge Three Legged",
